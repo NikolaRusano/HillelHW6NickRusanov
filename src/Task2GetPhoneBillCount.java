@@ -15,5 +15,7 @@ public class Task2GetPhoneBillCount {
         double abroadCallsZone1 = scanner.nextDouble();
         System.out.println("Input abroad calls zone2:");
         double abroadCallsZone2 = scanner.nextDouble();
+        Task2GetPhoneBill t1 = new Task2GetPhoneBill(basicInternetPrice, minutesPhoneTalkUKR, abroadCallsZone1,abroadCallsZone1, (int) usedGB, quantitySentSms);
+        System.out.println("The Total price of the Internet: " + t1.CountTotalPhoneBill(basicInternetPrice, minutesPhoneTalkUKR, abroadCallsZone1,abroadCallsZone1, (int) usedGB, quantitySentSms));
     }
 }

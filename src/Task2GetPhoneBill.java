@@ -1,4 +1,4 @@
-public class Task2GetPhoneBill {
+public class Task2GetPhoneBill<total> {
     private double basicInternetPackagePrice, callsAroundUkraineMinutes, callsAbroadZone1, callsAbroadZone2;
     private int usedGB, quantitySentSms;
 
@@ -11,7 +11,7 @@ public class Task2GetPhoneBill {
         this.quantitySentSms = quantitySentSms;
     }
 
-    static double CountPriceGBQuantity(double usedGB){
+    public double CountPriceGBQuantity(int usedGB){
         double pricecount;
         if(usedGB<=8){
             return pricecount = (usedGB - 8) * 100;
@@ -21,7 +21,7 @@ public class Task2GetPhoneBill {
 
     }
 
-    static double CountPricePhoneAroundUkraine(double minutesPhoneTalkUKR){
+    public double CountPricePhoneAroundUkraine(double minutesPhoneTalkUKR){
         double phoneTalkUKRPrice;
         if(minutesPhoneTalkUKR <= 500){
             return phoneTalkUKRPrice = minutesPhoneTalkUKR * 0.5;
@@ -30,7 +30,7 @@ public class Task2GetPhoneBill {
             return phoneTalkUKRPrice = (500 * 0.5) + ((minutesPhoneTalkUKR -500) * 0.5);
         }
     }
-    static double CountPriceSMSmessage(int quantitySentSms){
+    public double CountPriceSMSmessage(int quantitySentSms){
         double sentSmsPrice;
         if(quantitySentSms <= 50){
             return sentSmsPrice = quantitySentSms*1;
@@ -40,17 +40,17 @@ public class Task2GetPhoneBill {
         }
     }
 
-    static double CounrPriceCallsAbroadZone1(double abroadCallsZone1){
+    public double CounrPriceCallsAbroadZone1(double abroadCallsZone1){
         double priceCallsAbroadZone1;
         return priceCallsAbroadZone1 = abroadCallsZone1 * 1.5;
     }
-    static double CounrPriceCallsAbroadZone2(double abroadCallsZone2){
+    public double CounrPriceCallsAbroadZone2(double abroadCallsZone2){
         double priceCallsAbroadZone2;
         return priceCallsAbroadZone2 = abroadCallsZone2 * 2;
     }
-    public double CountTotalPhoneBill
-    double total = (basicInternetPrice+ CountPriceGBQuantity(usedGB)+ CountPricePhoneAroundUkraine(minutesPhoneTalkUKR) +
-            CountPriceSMSmessage(quantitySentSms) + CounrPriceCallsAbroadZone1(abroadCallsZone1) + CounrPriceCallsAbroadZone2(abroadCallsZone2));
-    total = total - (total *0.07);
-
+    public double CountTotalPhoneBill(double basicInternetPackagePrice, double callsAroundUkraineMinutes, double callsAbroadZone1, double callsAbroadZone2, int usedGB, int quantitySentSms) {
+        double total = (basicInternetPackagePrice + CountPriceGBQuantity(usedGB) + CountPricePhoneAroundUkraine(callsAroundUkraineMinutes) +
+                CountPriceSMSmessage(quantitySentSms) + CounrPriceCallsAbroadZone1(callsAbroadZone1) + CounrPriceCallsAbroadZone2(callsAbroadZone2));
+        return total = total - (total * 0.07);
+    }
 }
